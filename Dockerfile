@@ -20,3 +20,6 @@ RUN         apk update \
             && apk add -U openssl \
             && openssl req -new -newkey rsa:2048 -nodes -x509 -subj '/C=TH/ST=localhost/L=localhost/O=localhost/CN=localhost' -keyout /etc/ssl/localhost.key -out /etc/ssl/localhost.crt \
             && openssl dhparam -out /etc/ssl/dhparam.pem 512
+
+# Configurations
+COPY        nginx.conf /etc/nginx/nginx.conf
