@@ -19,7 +19,7 @@ RUN         ln -sf /usr/share/zoneinfo/Asia/Bangkok /etc/localtime
 RUN         apk update \
             && apk add -U openssl \
             && openssl req -new -newkey rsa:1024 -nodes -x509 -subj '/C=TH/ST=localhost/L=localhost/O=localhost/CN=localhost' -keyout /etc/ssl/localhost.key -out /etc/ssl/localhost.crt \
-            && openssl dhparam -out /etc/ssl/dhparam.pem 512
+            && openssl dhparam -out /etc/ssl/dhparam.pem 1024
 
 # Configurations
 COPY        nginx.conf /etc/nginx/nginx.conf
